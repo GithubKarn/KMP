@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice KMP</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="invoice">
+        <h2>Tax Invoice</h2>
+
+        <header>
+            <div class="header-left">
+                <h1>KARUNA MADHAV PLYWOODS</h1>
+                <p class="small-text">Kh. No. 37/11, B-Block, Kaushik Enclave, Near Nayara Petrol Pump</p>
+                <p class="small-text">Village Burari, New Delhi - 110 084</p>
+            </div>
+            <div class="header-right">
+                <p><strong>GSTIN/UIN: 07ABDFK2856J1Z4</strong></p>
+                <p class="small-text">State Name: Delhi (Code: 07)</p>
+                <p class="small-text">Tel: +91-99115-66877</p>
+                <p class="small-text">Email: aditya6delhi@yahoo.co.in</p>
+            </div>
+        </header>
+
+        <section>
+            <table class="invoice-details">
+                <!-- Consignee and Buyer Row -->
+                <tr>
+                    <td colspan="2">
+                        <span class="non-imp">Consignee (Bill to)</span>
+                        <br/>
+                        <input type="text" placeholder="Name of Consignee" class="input-field input-strong input-long" />
+                        <br/>
+                        <textarea class="input-field input-long" placeholder="Enter address of Consignee"></textarea>
+                        <br/>
+                        <p>GSTIN/UIN : <input type="text" class="input-field input-strong"></p>
+                        <p>State: <input type="text" class="input-field input-short"> Code: <input type="text" class="input-field input-short"></p>
+
+                    </td>
+
+                    <td colspan="2">
+                        <span class="non-imp">Buyer (Ship to)</span>
+                        <br/>
+                        <input type="text" placeholder="Name of Buyer" class="input-field input-long input-strong" />
+                        <br/>
+                        <textarea class="input-field input-long" placeholder="Enter address of Buyer"></textarea>
+                        <br/>
+                        <p>GSTIN/UIN : <input type="text" class="input-field input-strong"></p>
+                        <p>State: <input type="text" class="input-field input-short"> Code: <input type="text" class="input-field input-short"></p>
+
+                        
+
+                    </td>
+                </tr>
+
+                <!-- E Way Divs -->
+                <tr class="blockedElement">
+                    <td colspan="2" rowspan="2">
+                        E-way Bill No.
+                        <br/>
+                        <input type="text" class="input-field input-long input-strong" placeholder="Invoice No" />
+                    </td>
+                    <td colspan="2">
+                        Ack Date &emsp;
+                        <input type="text" class="input-field input-strong" placeholder="Invoice No" />
+                    </td>
+                </tr>
+                <tr class="blockedElement">
+                    <td colspan="2">
+                        Ack Num &emsp;
+                        <input type="text" class="input-field input-strong" placeholder="Invoice No" />
+                    </td>
+                </tr>
+
+                <!-- Other rows -->
+                <tr>
+                    <td>
+                        <span>Invoice No</span>
+                        <br/>
+                        <input type="text" class="input-field input-long input-strong" placeholder="Invoice No" />
+                    </td>
+                    <td>
+                        <span>Date</span>
+                        <br/>
+                        <input type="text" class="input-field input-long input-strong"/>
+                    </td><td>
+                        <span>Order Date</span>
+                        <br/>
+                        <input type="text" class="input-field input-long input-strong"/>
+                    </td><td>
+                        <span>Due Date</span>
+                        <br/>
+                        <input type="text" class="input-field input-long input-strong"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Order No</span>
+                        <br/>
+                        <input type="text" class="input-field input-long input-strong" placeholder="Invoice No" />
+                    </td>
+                    <td>
+                        <span>Payment Mode</span>
+                        <br/>
+                        <input type="text" class="input-field input-long input-strong" placeholder="Invoice No" />
+                    </td>
+                    <td>
+                        <span>Transport Mode</span>
+                        <br/>
+                        <input type="text" class="input-field input-long input-strong" placeholder="Invoice No" />
+                    </td>
+                    <td>
+                        <span>Vehicle No</span>
+                        <br/>
+                        <input type="text" class="input-field input-long input-strong" placeholder="Invoice No" />
+                    </td>
+                </tr>
+
+            </table>
+        </section>
+
+        <main>
+            <table class="billing-table">
+                <tr>
+                    <th style="width: 8%;">S. No.</th>
+                    <th style="width: 33%;">Description of Goods</th>
+                    <th style="width: 11%;">HSN/SAC</th>
+                    <th style="width: 8%;">Qty</th>
+                    <th style="width: 8%;">Unit</th>
+                    <th style="width: 14%;">Price</th>
+                    <th style="width: 14%;">Amount</th>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">1
+                    </td>
+
+                    <td><input type="text" class="input-field input-long input-strong"></td>
+                    
+                    <td><input type="text" class="input-field input-long input-center"></td>
+                    
+                    <td><input type="text" class="input-field input-long input-center"></td>
+                    
+                    <td><input type="text" class="input-field input-long input-center"></td>
+                    
+                    <td><input type="text" class="input-field input-long input-right"></td>
+                    
+                    <td class="input-right"></td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        <input type="text" class="input-field input-long input-center"  inputmode="numeric" pattern="[0-9]*">
+                    </td>
+
+                    <td><input type="text" class="input-field input-long input-strong"></td>
+                    
+                    <td><input type="text" class="input-field input-long input-center"></td>
+                    
+                    <td><input type="text" class="input-field input-long input-center"></td>
+                    
+                    <td><input type="text" class="input-field input-long input-center"></td>
+                    
+                    <td><input type="text" class="input-field input-long input-right"></td>
+                    
+                    <td class="input-right"></td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="text" class="input-field input-long input-center"  inputmode="numeric" pattern="[0-9]*">
+                    </td>
+
+                    <td><input type="text" class="input-field input-long input-strong"></td>
+                    
+                    <td><input type="text" class="input-field input-long input-center"></td>
+                    
+                    <td><input type="text" class="input-field input-long input-center"></td>
+                    
+                    <td><input type="text" class="input-field input-long input-center"></td>
+                    
+                    <td><input type="text" class="input-field input-long input-right"></td>
+                    
+                    <td class="input-right"></td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="text" class="input-field input-long input-center"  inputmode="numeric" pattern="[0-9]*">
+                    </td>
+
+                    <td><input type="text" class="input-field input-long input-strong"></td>
+                    
+                    <td><input type="text" class="input-field input-long input-center"></td>
+                    
+                    <td><input type="text" class="input-field input-long input-center"></td>
+                    
+                    <td><input type="text" class="input-field input-long input-center"></td>
+                    
+                    <td><input type="text" class="input-field input-long input-right"></td>
+                    
+                    <td class="input-right"></td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="text" class="input-field input-long input-center"  inputmode="numeric" pattern="[0-9]*">
+                    </td>
+
+                    <td><input type="text" class="input-field input-long input-strong"></td>
+                    
+                    <td><input type="text" class="input-field input-long input-center"></td>
+                    
+                    <td><input type="text" class="input-field input-long input-center"></td>
+                    
+                    <td><input type="text" class="input-field input-long input-center"></td>
+                    
+                    <td><input type="text" class="input-field input-long input-right"></td>
+                    
+                    <td class="input-right"></td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="text" class="input-field input-long input-center"  inputmode="numeric" pattern="[0-9]*">
+                    </td>
+
+                    <td><input type="text" class="input-field input-long input-strong"></td>
+                    
+                    <td><input type="text" class="input-field input-long input-center"></td>
+                    
+                    <td><input type="text" class="input-field input-long input-center"></td>
+                    
+                    <td><input type="text" class="input-field input-long input-center"></td>
+                    
+                    <td><input type="text" class="input-field input-long input-right"></td>
+                    
+                    <td class="input-right"></td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="text" class="input-field input-long input-center"  inputmode="numeric" pattern="[0-9]*">
+                    </td>
+
+                    <td><input type="text" class="input-field input-long input-strong"></td>
+                    
+                    <td><input type="text" class="input-field input-long input-center"></td>
+                    
+                    <td><input type="text" class="input-field input-long input-center"></td>
+                    
+                    <td><input type="text" class="input-field input-long input-center"></td>
+                    
+                    <td><input type="text" class="input-field input-long input-right"></td>
+                    
+                    <td class="input-right"></td>
+                </tr>
+
+
+                <tr style="border-top: 1px solid black;" class="non-imp input-strong">
+                    <td colspan="6">Subtotal</td>
+                    <td id="subtotal">280.00</td>
+                </tr>
+
+                <tr class="non-imp input-strong">
+                    <td colspan="6">CGST</td>
+                    <td id="cgst">280.00</td>
+                </tr>
+                
+                <tr class="non-imp input-strong">
+                    <td colspan="6">SGST</td>
+                    <td id="sgst">280.00</td>
+                </tr>
+
+                <tr style="border-top: 1px solid black;" class="input-strong">
+                    <td colspan="6" style="text-align: center;"><strong>Grand Total</strong></td>
+                    <td id="grand-total">80.00</td>
+                </tr>
+
+            </table>
+        </main>
+
+        <aside>
+
+            <div class="bank-dets">
+                <h4>Bank Details</h4>
+                <p>A/C: 6650376861</p>
+                <p>IFSC: KKBK0004626</p>
+                <p>Bank: Kotak Mahindra Bank</p>
+                <p>Branch: Model Town, Delhi</p>
+            </div>
+            
+            <div class="tax-table">
+                <table id="tax-summary-table">
+                    <thead>
+                        <tr>
+                            <th>HSN/SAC</th>
+                            <th>Subtotal</th>
+                            <th>CGST 9%</th>
+                            <th>SGST 9%</th>
+                            <th>IGST 9%</th>
+                            <th>Tax Amount</th>
+                            <th>Total Tax</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tax-summary-body">
+                        <!-- Will be populated by JavaScript -->
+                    </tbody>
+                    <!-- <tfoot>
+                        <tr id="tax-total-row">
+                            <td colspan="6">Total Tax Amount</td>
+                            <td id="final-tax-total">0.00</td>
+                        </tr>
+                    </tfoot> -->
+                </table>
+            </div>
+            
+        </aside>
+        
+
+        <footer>
+            <div class="footer-left">
+                <h4>Declaration</h4>
+                <div>
+                    <p>1. Goods once sold will not be taken back.</p>
+                    <p>2. Interest @ 18% p.a. will be charged if the payment is not made within 30 days.</p>
+                    <p>3. Subject to "DELHI" Jurisdiction only.</p>
+                    <p>* This is a computer generated bill, so no signature required.</p>
+                </div>
+
+            </div>
+            <div class="footer-right">
+                <h3>for KARUNA MADHAV PLYWOODS</h3>
+                <div class="stamp-area"></div>
+                <p>Authorized Signatory</p>
+            </div>
+        </footer>
+
+    </div>
+
+    <div class="blockedElement print-button">
+        <button>Print</button>
+    </div>
+
+<script>
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get the billing table by its class
+        const billingTable = document.querySelector('.billing-table');
+        
+        if (!billingTable) return; // Exit if table not found
+        
+        // Get all input rows (skip header and total rows)
+        const inputRows = billingTable.querySelectorAll('tr:not(.non-imp):not(.input-strong)');
+        
+        // Tax rates (adjust as needed)
+        const CGST_RATE = 9; // 9%
+        const SGST_RATE = 9; // 9%
+        
+        // Function to calculate all values
+        function calculateTotals() {
+            let subtotal = 0;
+            
+            // Process each input row
+            inputRows.forEach(row => {
+                const qtyInput = row.querySelector('td:nth-child(4) input');
+                const priceInput = row.querySelector('td:nth-child(6) input');
+                const amountCell = row.querySelector('td:nth-child(7)');
+                
+                if (qtyInput && priceInput && amountCell) {
+                    const qty = parseFloat(qtyInput.value) || 0;
+                    const price = parseFloat(priceInput.value) || 0;
+                    const amount = qty * price;
+                    
+                    if(amount == 0) {
+                        amountCell.textContent = ''; // Clear the cell if amount is 0
+                    } else {
+                        amountCell.textContent = amount.toFixed(2); // Format to 2 decimal places
+                    }
+                    subtotal += amount;
+                }
+            });
+            
+            // Update summary rows
+            const cgst = (subtotal * CGST_RATE) / 100;
+            const sgst = (subtotal * SGST_RATE) / 100;
+            const grandTotal = subtotal + cgst + sgst;
+            
+            billingTable.querySelector('#subtotal').textContent = subtotal.toFixed(2);
+            billingTable.querySelector('#cgst').textContent = cgst.toFixed(2);
+            billingTable.querySelector('#sgst').textContent = sgst.toFixed(2);
+            billingTable.querySelector('#grand-total').textContent = grandTotal.toFixed(2);
+        }
+        
+        // Add event listeners to all relevant inputs
+        billingTable.querySelectorAll('input').forEach(input => {
+            input.addEventListener('input', calculateTotals);
+        });
+        
+        // Initial calculation
+        calculateTotals();
+        taxTotalGrand = parseFloat(billingTable.querySelector('#grand-total').textContent) || 0;
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+    const billingTable = document.querySelector('.billing-table');
+    const taxBody = document.getElementById('tax-summary-body');
+    
+
+    if (!billingTable || !taxBody) return;
+
+    function updateTaxSummary() {
+        const rows = billingTable.querySelectorAll('tr');
+        const hsnMap = new Map();
+
+        rows.forEach(row => {
+            const hsnInput = row.querySelector('td:nth-child(3) input');
+            const qtyInput = row.querySelector('td:nth-child(4) input');
+            const priceInput = row.querySelector('td:nth-child(6) input');
+
+            if (hsnInput && qtyInput && priceInput) {
+                const hsn = hsnInput.value.trim() || 'N/A';
+                const qty = parseFloat(qtyInput.value) || 0;
+                const price = parseFloat(priceInput.value) || 0;
+                const amount = qty * price;
+
+                if (amount === 0) return;
+
+                const cgst = amount * 0.09;
+                const sgst = amount * 0.09;
+                const igst = 0;
+                const taxAmount = cgst + sgst + igst;
+
+                if (!hsnMap.has(hsn)) {
+                    hsnMap.set(hsn, {
+                        subtotal: 0,
+                        cgst: 0,
+                        sgst: 0,
+                        igst: 0,
+                        taxAmount: 0
+                    });
+                }
+
+                const hsnData = hsnMap.get(hsn);
+                hsnData.subtotal += amount;
+                hsnData.cgst += cgst;
+                hsnData.sgst += sgst;
+                hsnData.igst += igst;
+                hsnData.taxAmount += taxAmount;
+
+            }
+        });
+
+        // Clear old tax rows
+        taxBody.innerHTML = '';
+
+        let rowIndex = 0;
+
+
+        // Populate tax table
+        hsnMap.forEach((data, hsn) => {
+            const row = document.createElement('tr');
+            
+                row.innerHTML = ` 
+                <td>${hsn}</td>
+                <td>${data.subtotal.toFixed(2)}</td>
+                <td>${data.cgst.toFixed(2)}</td>
+                <td>${data.sgst.toFixed(2)}</td>
+                <td>${data.igst.toFixed(2)}</td>
+                <td>${data.taxAmount.toFixed(2)}</td>
+                `;  
+
+                if (rowIndex === 0) {
+                    const extraTd = document.createElement('td');
+                    extraTd.rowSpan = 5; // Fixed rowspan of 5
+                    extraTd.style.fontWeight = 'bold'; // Make it bold
+                    const tax = document.getElementById('cgst').textContent;
+                    extraTd.textContent = tax*2; // You can fill it later
+                    extraTd.style.verticalAlign = 'middle'; // (optional) align nicely
+                    row.appendChild(extraTd);
+                }
+
+                taxBody.appendChild(row);
+                rowIndex++;
+
+        });
+
+
+
+
+
+    }
+
+    // Listen to changes in all inputs
+    billingTable.querySelectorAll('input').forEach(input => {
+        input.addEventListener('input', updateTaxSummary);
+    });
+
+    // Initial call
+    updateTaxSummary();
+    document.getElementById('taxTotalCell').textContent = taxTotalGrand.toFixed(2);
+});
+
+    
+
+
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,228 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.5;
+    background-color: #f0f0f0;
+    color: #000;
+    padding: 20px;
+}
+
+/* Input Fields Styling */
+.non-imp{
+    font-size: 15px;
+    font-style: italic;
+}
+
+.small-text{
+    font-size: 14px;
+}
+.input-field{
+    width: 50%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: none;
+    border-bottom: 2px solid #30ceee;
+    color: black;
+    font-size: 16px;
+}
+.input-field:focus{
+    outline: none;
+    background-color: whitesmoke;
+    border: 1px solid #8ee0f0; 
+    background-color: #caf0f8;   /* font-size: 16px; */
+}
+.input-strong{
+    font-weight: bold;
+}
+.input-short{
+    width: 20%;
+}
+.input-long{
+    width: 100%;
+    resize: none;
+}
+.input-right{
+    text-align: right;
+}
+.input-center{
+    text-align: center;
+}
+
+
+/* Invoice Starts */
+.invoice{
+    position: relative;
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    padding: 5mm;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+h2{
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+.header-left{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.header-right{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+    border: 1px solid black;
+}
+.invoice-details td{
+    padding: 1px 5px;
+    border: 1px solid black;
+}
+.billing-table th{
+    padding: 1px 5px;
+    text-align: center;
+    border: 1px solid black;
+}
+.billing-table td{
+    text-align: right;
+    padding: 5px 5px;
+    border-right: 1px solid black;
+}
+
+
+
+/* .fixed-input {
+    height: 100px;
+    width: 420px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    font-family: Arial;
+    resize: none;
+    overflow-y: auto;
+        background-color: white;
+    color: black;
+  } */
+
+/* Tax Table Styling */
+aside{
+    display: flex;
+    font-size: 13px;
+    /* margin-bottom: 5px; */
+}
+.bank-dets{
+    width: 23%;    
+    /* margin-bottom: 5px; */
+}
+.tax-table{
+    font-size: 13px;
+    width: 77%;
+    text-align: center;
+}
+.tax-table td, .tax-table th{
+    border: 1px solid black;
+}
+
+
+
+
+
+/* Footer Styling */
+footer{
+    position: absolute;
+    inset: auto 5mm 5mm 5mm;
+    display: flex;
+    font-size: 13px;
+}
+.footer-left{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 65%;
+}
+.footer-right{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    width: 35%;
+}
+.stamp-area{
+    height: 42px;
+    border: 1px dashed #999;
+    margin: 5px 0;
+    width: 90%;
+}
+
+.print-button{
+    display: flex;
+    margin: 2rem;
+}
+
+.print-button button{
+    background-color: green;
+    margin: 0 auto;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 26px;
+    border-radius: 4px;
+    border: darkgreen 2px solid;
+}
+
+
+
+@media print {
+    body {
+      padding: 0;  
+      margin: 0;
+      background: none;
+    }
+    
+    .invoice {
+      width: 210mm;
+      height: 297mm;
+      margin: 0;
+      /* padding: 10mm; */
+      box-shadow: none;
+      border: none;
+      overflow: hidden;
+      page-break-after: avoid;
+      page-break-inside: avoid;
+      position: relative;
+    }
+    .input-field{
+        border: none;
+        background-color: white;
+    }
+    .input-field::placeholder{
+        color: transparent;
+    }
+    input[type="date"]:not(:valid){
+        color: transparent;
+    }
+    .blockedElement{
+        display: none;
+    }
+    
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }   
+  }
