@@ -263,14 +263,14 @@
                     <td id="subtotal">280.00</td>
                 </tr>
 
-                <tr class="non-imp input-strong">
+                <!-- <tr class="non-imp input-strong">
                     <td colspan="6">CGST</td>
                     <td id="cgst">280.00</td>
-                </tr>
+                </tr> -->
                 
                 <tr class="non-imp input-strong">
-                    <td colspan="6">SGST</td>
-                    <td id="sgst">280.00</td>
+                    <td colspan="6">IGST</td>
+                    <td id="igst">280.00</td>
                 </tr>
 
                 <tr style="border-top: 1px solid black;" class="input-strong">
@@ -297,8 +297,8 @@
                         <tr>
                             <th>HSN/SAC</th>
                             <th>Subtotal</th>
-                            <th>CGST 9%</th>
-                            <th>SGST 9%</th>
+                            <!-- <th>CGST 9%</th> -->
+                            <!-- <th>SGST 9%</th> -->
                             <th>IGST 9%</th>
                             <th>Tax Amount</th>
                             <th>Total Tax</th>
@@ -356,8 +356,8 @@
         const inputRows = billingTable.querySelectorAll('tr:not(.non-imp):not(.input-strong)');
         
         // Tax rates (adjust as needed)
-        const CGST_RATE = 9; // 9%
-        const SGST_RATE = 9; // 9%
+        // const CGST_RATE = 9; // 9%
+        const IGST_RATE = 18; // 18%
         
         // Function to calculate all values
         function calculateTotals() {
@@ -384,13 +384,14 @@
             });
             
             // Update summary rows
-            const cgst = (subtotal * CGST_RATE) / 100;
-            const sgst = (subtotal * SGST_RATE) / 100;
-            const grandTotal = subtotal + cgst + sgst;
+            // const cgst = (subtotal * CGST_RATE) / 100;
+            // const sgst = (subtotal * SGST_RATE) / 100;
+            const igst = (subtotal * IGST_RATE) / 100;
+            const grandTotal = subtotal + igst;
             
             billingTable.querySelector('#subtotal').textContent = subtotal.toFixed(2);
-            billingTable.querySelector('#cgst').textContent = cgst.toFixed(2);
-            billingTable.querySelector('#sgst').textContent = sgst.toFixed(2);
+            billingTable.querySelector('#igst').textContent = igst.toFixed(2);
+            // billingTable.querySelector('#sgst').textContent = sgst.toFixed(2);
             billingTable.querySelector('#grand-total').textContent = grandTotal.toFixed(2);
         }
         
@@ -428,16 +429,16 @@
 
                 if (amount === 0) return;
 
-                const cgst = amount * 0.09;
-                const sgst = amount * 0.09;
-                const igst = 0;
-                const taxAmount = cgst + sgst + igst;
+                // const cgst = amount * 0.09;
+                // const sgst = amount * 0.09;
+                const igst = amount * 0.18;
+                const taxAmount = igst;
 
                 if (!hsnMap.has(hsn)) {
                     hsnMap.set(hsn, {
                         subtotal: 0,
-                        cgst: 0,
-                        sgst: 0,
+                        // cgst: 0,
+                        // sgst: 0,
                         igst: 0,
                         taxAmount: 0
                     });
@@ -445,8 +446,8 @@
 
                 const hsnData = hsnMap.get(hsn);
                 hsnData.subtotal += amount;
-                hsnData.cgst += cgst;
-                hsnData.sgst += sgst;
+                // hsnData.cgst += cgst;
+                // hsnData.sgst += sgst;
                 hsnData.igst += igst;
                 hsnData.taxAmount += taxAmount;
 
@@ -465,9 +466,9 @@
             
                 row.innerHTML = ` 
                 <td>${hsn}</td>
-                <td>${data.subtotal.toFixed(2)}</td>
-                <td>${data.cgst.toFixed(2)}</td>
-                <td>${data.sgst.toFixed(2)}</td>
+                // <td>${data.subtotal.toFixed(2)}</td>
+                // <td>${data.cgst.toFixed(2)}</td>
+                // <td>${data.sgst.toFixed(2)}</td>
                 <td>${data.igst.toFixed(2)}</td>
                 <td>${data.taxAmount.toFixed(2)}</td>
                 `;  
@@ -513,5 +514,6 @@
 </body>
 
 </html>
+
 
 
